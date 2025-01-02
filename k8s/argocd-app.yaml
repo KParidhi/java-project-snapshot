@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-project
+spec:
+  project: default # Or the name of your Argo CD project
+  source:
+    repoURL: https://github.com/KParidhi/java-project-snapshot/
+    targetRevision: HEAD # Or a specific branch or tag
+    path: ./ # Path to the deployment and service files within your repository
+  destination:
+    server: https://192.168.49.2:8080 # URL of your Kubernetes cluster
+    namespace: default # Namespace where you want to deploy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

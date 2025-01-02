@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-project
+spec:
+  replicas: 1 # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: my-project
+  template:
+    metadata:
+      labels:
+        app: my-project
+    spec:
+      containers:
+        - name: my-project
+          image: kparidhi/my-project-snapshot:latest
+          ports:
+            - containerPort: 8080 # Replace with the port your application listens on
