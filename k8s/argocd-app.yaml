@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-project
+  namespace: argocd
 spec:
   project: default # Or the name of your Argo CD project
   source:
@@ -9,8 +10,8 @@ spec:
     targetRevision: HEAD # Or a specific branch or tag
     path: ./ # Path to the deployment and service files within your repository
   destination:
-    server: https://10.98.84.101:8080 # URL of your Kubernetes cluster
-    namespace: default # Namespace where you want to deploy
+    server: https://127.0.0.1:8080:8080 # URL of your Kubernetes cluster
+    namespace: argocd # Namespace where you want to deploy
   syncPolicy:
     automated:
       prune: true
