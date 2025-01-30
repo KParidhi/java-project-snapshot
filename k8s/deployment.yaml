@@ -16,4 +16,4 @@ spec:
         - name: my-project
           image: kparidhi/my-project-snapshot:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8082
